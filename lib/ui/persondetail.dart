@@ -1,8 +1,11 @@
+import 'package:contacts_flutter_exercise/cubit/persondetailcubit.dart';
 import 'package:contacts_flutter_exercise/model/person.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonDetail extends StatefulWidget {
   Person person;
+
   PersonDetail({super.key, required this.person});
 
   @override
@@ -12,10 +15,6 @@ class PersonDetail extends StatefulWidget {
 class _PersonDetailState extends State<PersonDetail> {
   var nameController = TextEditingController();
   var phoneController = TextEditingController();
-
-  Future<void> updateContact(int personId, String name, String phone) async {
-    print("Person updated: $personId - $name - $phone");
-  }
 
   @override
   void initState() {
@@ -45,11 +44,13 @@ class _PersonDetailState extends State<PersonDetail> {
                 decoration: const InputDecoration(hintText: "Phone Number"),
               ),
               ElevatedButton(
-                  onPressed: (){
-                    updateContact(widget.person.personId, nameController.text, phoneController.text);
+                  onPressed: () {
+                    context.read<PersonDetailCubit>().updateContact(
+                        widget.person.personId,
+                        nameController.text,
+                        phoneController.text);
                   },
-                  child: const Text("UPDATE")
-              )
+                  child: const Text("UPDATE"))
             ],
           ),
         ),

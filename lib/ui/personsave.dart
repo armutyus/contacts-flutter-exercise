@@ -1,4 +1,6 @@
+import 'package:contacts_flutter_exercise/cubit/personsavecubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonSave extends StatefulWidget {
   const PersonSave({super.key});
@@ -8,13 +10,8 @@ class PersonSave extends StatefulWidget {
 }
 
 class _PersonSaveState extends State<PersonSave> {
-
   var nameController = TextEditingController();
   var phoneController = TextEditingController();
-
-  Future<void> saveContact(String name, String phone) async {
-    print("Person saved: $name - $phone");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +32,12 @@ class _PersonSaveState extends State<PersonSave> {
                 decoration: const InputDecoration(hintText: "Phone Number"),
               ),
               ElevatedButton(
-                  onPressed: (){
-                    saveContact(nameController.text, phoneController.text);
+                  onPressed: () {
+                    context
+                        .read<PersonSaveCubit>()
+                        .saveContact(nameController.text, phoneController.text);
                   },
-                  child: const Text("SAVE")
-              )
+                  child: const Text("SAVE"))
             ],
           ),
         ),

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "276410500444",
+    "firebase_url": "https://flutter-contacts-exercise-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "flutter-contacts-exercise",
+    "storage_bucket": "flutter-contacts-exercise.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276410500444:android:7becc0cb4ff4ebab236d99",
+        "android_client_info": {
+          "package_name": "com.example.contacts_flutter_exercise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSm0hs22BluhMUFKTGQhE_w0Lbwloz1Lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
